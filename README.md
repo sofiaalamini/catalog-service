@@ -69,3 +69,23 @@ Para executar os testes:
 mvn test
 ```
 
+## Consultando e desativando produtos
+
+Consultar um produto, mesmo desativado:
+
+```bash
+curl http://localhost:8080/products/1
+```
+
+Consultar somente produtos ativos:
+
+```bash
+curl "http://localhost:8080/products?active=true"
+```
+
+Desativar um produto sem removê-lo do banco:
+
+```bash
+curl -X PATCH http://localhost:8080/products/1/deactivate
+```
+

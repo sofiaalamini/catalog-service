@@ -7,7 +7,8 @@ public record Produto(
         String nome,
         String descricao,
         Double preco,
-        LocalDateTime criadoEm) {
+        LocalDateTime criadoEm,
+        Boolean ativo) {
 
     public static Produto criar(String nome, String descricao, Double preco) {
         if (nome == null || nome.isBlank()) {
@@ -33,10 +34,14 @@ public record Produto(
         }
 
         double precoArredondado = Math.round(preco * 100.0) / 100.0;
-        return new Produto(null, nome, descricao, precoArredondado, LocalDateTime.now());
+        return new Produto(null, nome, descricao, precoArredondado, LocalDateTime.now(), true);
     }
 
     public Produto comId(Long id) {
-        return new Produto(id, nome, descricao, preco, criadoEm);
+        return new Produto(id, nome, descricao, preco, criadoEm, ativo);
+    }
+
+    public Produto desativar() {
+        return new Produto(id, nome, descricao, preco, criadoEm, false);
     }
 }

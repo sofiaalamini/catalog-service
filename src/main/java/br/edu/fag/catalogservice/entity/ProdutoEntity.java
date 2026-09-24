@@ -9,10 +9,11 @@ public record ProdutoEntity(
         String nome,
         String descricao,
         Double preco,
-        LocalDateTime criadoEm) {
+        LocalDateTime criadoEm,
+        Boolean ativo) {
 
     public static ProdutoEntity de(Produto produto) {
         return new ProdutoEntity(produto.id(), produto.nome(), produto.descricao(),
-                produto.preco(), produto.criadoEm());
+                produto.preco(), produto.criadoEm(), produto.ativo());
     }
 }
