@@ -9,7 +9,7 @@ public record ProdutoResponse(
         String nome,
         String descricao,
         Double preco,
-        LocalDateTime criadoEm) {
+    LocalDateTime criadoEm) {
 
     public static ProdutoResponse de(Produto produto) {
         return new ProdutoResponse(

@@ -22,7 +22,7 @@ public class JdbcProdutoRepository implements ProdutoRepository {
     @Override
     public Long salvar(Produto produto) {
         ProdutoEntity entity = ProdutoEntity.de(produto);
-        KeyHolder chaveGerada = new GeneratedKeyHolder();
+        KeyHolder chave = new GeneratedKeyHolder();
 
         jdbcTemplate.update(conexao -> {
             PreparedStatement comando = conexao.prepareStatement(
@@ -33,8 +33,8 @@ public class JdbcProdutoRepository implements ProdutoRepository {
             comando.setDouble(3, entity.preco());
             comando.setTimestamp(4, java.sql.Timestamp.valueOf(entity.criadoEm()));
             return comando;
-        }, chaveGerada);
+        }, chave);
 
-        return chaveGerada.getKey().longValue();
+        return chave.getKey().longValue();
     }
 }

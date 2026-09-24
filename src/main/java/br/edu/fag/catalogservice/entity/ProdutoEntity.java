@@ -12,11 +12,7 @@ public record ProdutoEntity(
         LocalDateTime criadoEm) {
 
     public static ProdutoEntity de(Produto produto) {
-        return new ProdutoEntity(
-                produto.id(),
-                produto.nome(),
-                produto.descricao(),
-                produto.preco(),
-                produto.criadoEm());
+        return new ProdutoEntity(produto.id(), produto.nome(), produto.descricao(),
+                produto.preco(), produto.criadoEm());
     }
 }

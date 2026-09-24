@@ -1,8 +1,8 @@
 package br.edu.fag.catalogservice.controller;
 
-import br.edu.fag.catalogservice.domain.RegraDeNegocioException;
 import br.edu.fag.catalogservice.dto.ProdutoCriacaoRequest;
 import br.edu.fag.catalogservice.dto.ProdutoResponse;
+import br.edu.fag.catalogservice.domain.RegraDeNegocioException;
 import br.edu.fag.catalogservice.service.ProdutoService;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.http.HttpStatus;
